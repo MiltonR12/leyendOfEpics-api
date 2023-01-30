@@ -17,9 +17,9 @@ export const getTeam = async (req, res) => {
 }
 
 export const addTeam = async (req, res) => {
-  const { name, captain, team, members, date, stage } = req.body
+  const { name, captain, team, members, date } = req.body
   try {
-    const [result] = await pool.query('INSERT INTO leyendOfEpics (name, captain, team, members, date, stage) VALUES (?,?,?,?,?,?)', [name, captain, team, members, date, stage])
+    const [result] = await pool.query('INSERT INTO leyendOfEpics (name, captain, team, members, date) VALUES (?,?,?,?,?)', [name, captain, team, members, date])
     res.json({
       id: result.insertId,
       name,
